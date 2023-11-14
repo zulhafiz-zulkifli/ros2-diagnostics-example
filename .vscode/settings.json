@@ -1,0 +1,33 @@
+{
+    "ros.distro": "foxy",
+    "python.autoComplete.extraPaths": [
+        "/home/px10/px400v_ws/install/tzbot_mag/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_master/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/roboteq_interfaces/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_navigation/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_mcu/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_interfaces/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_hmi/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_description/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/px400v_base/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/micro_ros_msgs/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/flir_lepton_purethermal2/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/flir_lepton_data_processor/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/flir_lepton_msgs/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/flir_ax8/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/eip_link/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/drive_base_msgs/lib/python3.8/site-packages",
+        "/home/px10/px400v_ws/install/apriltag_msgs/lib/python3.8/site-packages",
+        "/home/px10/sdlfc_ws/install/sdlfc_master/lib/python3.8/site-packages",
+        "/home/px10/sdlfc_ws/install/sdlfc_interfaces/lib/python3.8/site-packages",
+        "/home/px10/sdlfc_ws/install/laser_line_extraction_msgs/lib/python3.8/site-packages",
+        "/home/px10/sdlfc_ws/install/joint_trajectory_publisher/lib/python3.8/site-packages",
+        "/home/px10/yasmin_ws/install/yasmin_demo/lib/python3.8/site-packages",
+        "/home/px10/yasmin_ws/install/yasmin_viewer/lib/python3.8/site-packages",
+        "/home/px10/yasmin_ws/install/yasmin_ros/lib/python3.8/site-packages",
+        "/home/px10/yasmin_ws/install/yasmin_msgs/lib/python3.8/site-packages",
+        "/home/px10/yasmin_ws/install/yasmin/lib/python3.8/site-packages",
+        "/home/px10/yasmin_ws/install/simple_node/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}
