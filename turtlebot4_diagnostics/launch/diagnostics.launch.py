@@ -22,7 +22,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 from launch_ros.actions import Node
 
-from nav2_common.launch import RewrittenYaml
+# from nav2_common.launch import RewrittenYaml
 
 
 def generate_launch_description():
@@ -32,17 +32,17 @@ def generate_launch_description():
     analyzer_params_filepath = PathJoinSubstitution(
         [pkg_turtlebot4_diagnostics, 'config', 'diagnostics.yaml'])
 
-    namespaced_param_file = RewrittenYaml(
-        source_file=analyzer_params_filepath,
-        root_key=LaunchConfiguration('namespace'),
-        param_rewrites={},
-        convert_types=True)
+    # namespaced_param_file = RewrittenYaml(
+    #     source_file=analyzer_params_filepath,
+    #     root_key=LaunchConfiguration('namespace'),
+    #     param_rewrites={},
+    #     convert_types=True)
 
     aggregator = Node(
         package='diagnostic_aggregator',
         executable='aggregator_node',
         output='screen',
-        parameters=[namespaced_param_file],
+        parameters=[analyzer_params_filepath],
         remappings=[
             ('/diagnostics', 'diagnostics'),
             ('/diagnostics_agg', 'diagnostics_agg'),
