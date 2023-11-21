@@ -27,10 +27,8 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    pkg_turtlebot4_diagnostics = get_package_share_directory('turtlebot4_diagnostics')
-
     analyzer_params_filepath = PathJoinSubstitution(
-        [pkg_turtlebot4_diagnostics, 'config', 'diagnostics.yaml'])
+        [get_package_share_directory('diagnostics_example'), 'config', 'diagnostics.yaml'])
 
     # namespaced_param_file = RewrittenYaml(
     #     source_file=analyzer_params_filepath,
@@ -49,17 +47,25 @@ def generate_launch_description():
             ('/diagnostics_toplevel_state', 'diagnostics_toplevel_state')
         ])
     diag_publisher = Node(
-         package='turtlebot4_diagnostics',
-         executable='diagnostics_updater',
+         package='diagnostics_example',
+         executable='diagnostics_updater.py',
          output='screen',
          remappings=[
             ('/diagnostics', 'diagnostics'),
             ('/diagnostics_agg', 'diagnostics_agg'),
             ('/diagnostics_toplevel_state', 'diagnostics_toplevel_state')]
         )
+
+    cpu_monitor = Node(
+         package='diagnostics_example',
+         executable='computer_monitor.py',
+         output='screen'
+        )
+
     return launch.LaunchDescription([
         aggregator,
-        diag_publisher,
+        # diag_publisher,
+        cpu_monitor,
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(
                 target_action=aggregator,

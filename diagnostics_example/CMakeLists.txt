@@ -21,6 +21,12 @@ find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 
+find_package(diagnostic_updater REQUIRED)
+find_package(diagnostic_aggregator REQUIRED)
+find_package(diagnostic_msgs REQUIRED)
+find_package(irobot_create_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+
 # Include Cpp "include" directory
 include_directories(include)
 
@@ -39,7 +45,9 @@ ament_python_install_package(scripts)
 
 # Install Python executables
 install(PROGRAMS
-  # scripts/.py
+  scripts/diagnostics_updater.py
+  scripts/aggregator_sub.py
+  scripts/computer_monitor.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
