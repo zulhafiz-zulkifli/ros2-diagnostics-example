@@ -29,13 +29,16 @@ class ComputerMonitor(Node):
         self.updater.setHardwareID(hostname)
 
         # Add Diagnostic status
-        self.updater.add('CPU Usage', self.run_cpu_monitor)
-        self.updater.add('RAM Usage', self.run_ram_monitor)
-        self.updater.add('Hard Disk Usage', self.run_hd_monitor)
+        self.updater.add('CPU Usage', self.monitor_cpu_usage)
+        self.updater.add('RAM Usage', self.monitor_ram_usage)
+        self.updater.add('Hard Disk Usage', self.monitor_hd_usage)
+        self.updater.add('CPU Temperature', self.monitor_cpu_temp)
+        self.updater.add('Hard Disk Temperature', self.monitor_hd_temp)
+
 
         self.updater.force_update()
 
-    def run_cpu_monitor(self, stat):
+    def monitor_cpu_usage(self, stat):
         self._readings_cpu.append(psutil.cpu_percent(percpu=True))
         cpu_percentages = self._get_average_reading_cpu()
         cpu_average = sum(cpu_percentages) / len(cpu_percentages)
@@ -54,7 +57,7 @@ class ComputerMonitor(Node):
 
         return stat
 
-    def run_ram_monitor(self, stat):
+    def monitor_ram_usage(self, stat):
         ram = psutil.virtual_memory()
         percent_used = ram.percent
         memory_present = ram.total
@@ -73,7 +76,7 @@ class ComputerMonitor(Node):
 
         return stat
     
-    def run_hd_monitor(self, stat):
+    def monitor_hd_usage(self, stat):
         disk_partitions = psutil.disk_partitions()
 
         max_disk_usage = 0
@@ -96,13 +99,37 @@ class ComputerMonitor(Node):
 
                 partition_idx+=1
 
-        
-
         if max_disk_usage > self._warning_percentage_hd:
             stat.summary(DiagnosticStatus.WARN, "High usage : {:.2f} %".format(max_disk_usage))
         else:
             stat.summary(DiagnosticStatus.OK, "{:.2f} %".format(max_disk_usage))
 
+        return stat
+    
+    def monitor_cpu_temp(self, stat):
+        sensors = psutil.sensors_temperatures()
+        if 'coretemp' in sensors:
+            temp_current = sensors['coretemp'][0].current
+            temp_high = sensors['coretemp'][0].high
+            if temp_current < temp_high:
+                stat.summary(DiagnosticStatus.OK, "{:.2f} °C".format(temp_current))
+            else:
+                stat.summary(DiagnosticStatus.WARN, "High temperature : {:.2f} °C".format(temp_current))
+        else:
+            stat.summary(DiagnosticStatus.WARN, "Unable to retrieve temperature")
+        return stat
+    
+    def monitor_hd_temp(self, stat):
+        sensors = psutil.sensors_temperatures()
+        if 'nvme' in sensors:
+            temp_current = sensors['nvme'][0].current
+            temp_high = sensors['nvme'][0].high
+            if temp_current < temp_high:
+                stat.summary(DiagnosticStatus.OK, "{:.2f} °C".format(temp_current))
+            else:
+                stat.summary(DiagnosticStatus.WARN, "High temperature : {:.2f} °C".format(temp_current))
+        else:
+            stat.summary(DiagnosticStatus.WARN, "Unable to retrieve temperature")
         return stat
 
     def _get_average_reading_cpu(self):
