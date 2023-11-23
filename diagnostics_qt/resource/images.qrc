@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>images/ok.png</file>
+        <file>images/warn.png</file>
+        <file>images/error.png</file>
+        <file>images/stale.png</file>
+    </qresource>
+</RCC>

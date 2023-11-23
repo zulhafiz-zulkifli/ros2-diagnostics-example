@@ -1,46 +1,46 @@
 analyzers:
   ros__parameters:
-    # path: SDLFC
-    # battery:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Battery
-    #   contains: [ 'Battery' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # wheels:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Wheels
-    #   contains: [ 'Wheel' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # docked:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Dock
-    #   contains: [ 'Dock' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # hazards:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Hazards
-    #   contains: [ 'Hazard' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # imu:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: IMU
-    #   contains: [ 'imu' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # mouse:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Mouse
-    #   contains: [ 'mouse' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # lidar:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Lidar
-    #   contains: [ 'scan' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
-    # camera:
-    #   type: diagnostic_aggregator/GenericAnalyzer
-    #   path: Camera
-    #   contains: [ 'image', 'depth' ]
-    #   remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    path: ''
+    battery:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Battery
+      contains: [ 'Battery' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    wheels:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Wheels
+      contains: [ 'Wheel' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    docked:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Dock
+      contains: [ 'Dock' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    hazards:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Hazards
+      contains: [ 'Hazard' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    imu:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: IMU
+      contains: [ 'imu' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    mouse:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Mouse
+      contains: [ 'mouse' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    lidar:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Lidar
+      contains: [ 'scan' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
+    camera:
+      type: diagnostic_aggregator/GenericAnalyzer
+      path: Camera
+      contains: [ 'image', 'depth' ]
+      remove_prefix:  [ 'turtlebot4_diagnostics: ' ]
     computer:
       type: diagnostic_aggregator/GenericAnalyzer
       path: Computer
