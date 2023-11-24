@@ -64,7 +64,7 @@ def generate_launch_description():
 
     return launch.LaunchDescription([
         aggregator,
-        # diag_publisher,
+        diag_publisher,
         cpu_monitor,
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(

@@ -50,8 +50,10 @@ class ComputerMonitor(Node):
             stat.add("CPU {} Load".format(idx), "{:.2f}".format(val))
             if val > self._warning_percentage_cpu:
                 warn = True
-        if warn:
-            stat.summary(DiagnosticStatus.WARN, "At least one CPU exceeds {:d} %".format(self._warning_percentage_cpu))
+        # if warn:
+        #     stat.summary(DiagnosticStatus.WARN, "At least one CPU exceeds {:d} %".format(self._warning_percentage_cpu))
+        if cpu_average > self._warning_percentage_cpu:
+            stat.summary(DiagnosticStatus.WARN, "High load : {:.2f} %".format(cpu_average))
         else:
             stat.summary(DiagnosticStatus.OK, "{:.2f} %".format(cpu_average))
 
