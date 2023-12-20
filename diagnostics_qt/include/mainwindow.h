@@ -22,9 +22,10 @@ public:
 private:
     Ui::MainWindow *ui;
     rclcomm *commNode;
+    QTreeWidgetItem *invisibleRoot;
 public slots:
-    void updateDiagnostics(QString);
     void updateTreeWidget(QString,QString,QString);
+    void traverseTree(QTreeWidgetItem *parentItem, QString name, QString message, QString level);
     void clearTreeWidget();
 };
 #endif // MAINWINDOW_H

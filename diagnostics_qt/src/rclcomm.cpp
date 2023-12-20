@@ -32,7 +32,7 @@ void rclcomm::run(){
 
 void rclcomm::diagnostics_agg_cb(const diagnostic_msgs::msg::DiagnosticArray::SharedPtr msg)
 {
-    emitClearTreeWidget();
+    // emitClearTreeWidget();
     for (const auto& status : msg->status) {
         
         std::string levelString;
